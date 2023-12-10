@@ -1,0 +1,17 @@
+.swiper-button-next,
+.swiper-button-prev {
+    border-radius: 100%;
+    background: black;
+    padding: 25px;
+    color: white !important;
+    top:90% !important  ;
+    --swiper-navigation-size: 20px;
+}
+.swiper-button-next{
+    position: absolute !important;
+    right: 50px !important;
+}
+.swiper-button-prev {
+    right:200px !important;
+    left: var(--swiper-navigation-sides-offset, none) !important;
+}

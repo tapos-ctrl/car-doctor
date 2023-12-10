@@ -1,18 +1,72 @@
-import { Link } from 'react-router-dom'
-import logoImg  from  '../../../assets/icons/logo.svg'
+import { Link, NavLink } from 'react-router-dom'
+import './Navbar.css'
+import logoImg from '../../../assets/icons/logo.svg'
+import { useState } from 'react'
 
 const Navbar = () => {
+    const [toggle, setToggle] = useState(false)
+
+
+  const navLinks = (
+    <>
+      <li>
+        <NavLink className='mx-2 text-[#444444] font-semibold text-lg' to={'/'}>
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className='mx-2 text-[#444444] font-semibold text-lg'
+          to={'/about'}
+        >
+          About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className='mx-2 text-[#444444] font-semibold text-lg'
+          to={'/services'}
+        >
+          Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className='mx-2 text-[#444444] font-semibold text-lg'
+          to={'/blog'}
+        >
+          Blog
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className='mx-2 text-[#444444] font-semibold text-lg'
+          to={'/contact'}
+        >
+          Contact
+        </NavLink>
+      </li>
+    </>
+  )
+
   return (
     <div className='navbar bg-base-100'>
       <div className='navbar-start'>
         <div className='dropdown'>
-          <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
+          <div
+            tabIndex={0}
+            role='button'
+            className='btn btn-ghost lg:hidden opacity-100'
+            onClick={() =>setToggle(!toggle)}
+            
+          >
             <svg
               xmlns='http://www.w3.org/2000/svg'
               className='h-5 w-5'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
+              
             >
               <path
                 strokeLinecap='round'
@@ -22,56 +76,23 @@ const Navbar = () => {
               />
             </svg>
           </div>
-          <ul
-            tabIndex={0}
-            className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
+          {
+            toggle ? <ul
+            className='menu menu-sm  absolute bg-white mt-3 z-50 p-2 shadow  rounded-box w-64 text-center lg:hidden  flex content-center'
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className='p-2'>
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
+            {navLinks}
+          </ul>:''
+          }
         </div>
-        <Link to={'/'} className='btn btn-ghost text-xl'><img src={logoImg} alt="" className='w-full h-full'/></Link>
+        <Link to={'/'} className='btn btn-ghost text-xl'>
+          <img src={logoImg} alt='' className='w-full h-full' />
+        </Link>
       </div>
       <div className='navbar-center hidden lg:flex'>
-        <ul className='menu menu-horizontal px-1'>
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className='p-2'>
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+        <ul className='menu menu-horizontal px-1'>{navLinks}</ul>
       </div>
       <div className='navbar-end'>
-        <a className='btn'>Button</a>
+        <a className='btn text-[#FF3811] text-lg font-semibold'>Appointment</a>
       </div>
     </div>
   )
