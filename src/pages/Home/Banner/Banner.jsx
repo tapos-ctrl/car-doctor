@@ -24,7 +24,7 @@ const Banner = () => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className='mySwiper lg:h-[800px] rounded-2xl'
+        className='mySwiper rounded-2xl'
       >
         <SwiperSlide>
           <div

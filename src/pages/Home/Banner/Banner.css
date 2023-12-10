@@ -1,7 +1,7 @@
 .swiper-button-next,
 .swiper-button-prev {
     border-radius: 100%;
-    background: black;
+    background: #FF3811;
     padding: 25px;
     color: white !important;
     top:90% !important  ;
@@ -10,6 +10,7 @@
 .swiper-button-next{
     position: absolute !important;
     right: 50px !important;
+    
 }
 .swiper-button-prev {
     right:200px !important;
