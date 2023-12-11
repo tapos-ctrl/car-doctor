@@ -26,7 +26,7 @@ const About = () => {
           <p className='py-6 text-[#737373]'>
           There are many variations of passages of Lorem Ipsum <br /> available, but the majority have suffered alteration in some <br></br> form, by injected humour, or randomised words which do not <br></br> look even slightly believable. 
           </p>
-          <button className='btn bg-[#FF3811] text-white text-lg font-semibold'>Get More Info</button>
+          <button className='btn bg-[#FF3811] text-white text-lg font-semibold hover:text-black'>Get More Info</button>
         </div>
       </div>
     </div>
