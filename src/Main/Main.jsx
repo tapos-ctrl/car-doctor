@@ -5,10 +5,15 @@ import Footer from "../pages/sheard/Footer/Footer";
 
 const Main = () => {
     return (
-        <div className="container mx-auto px-5">
+        <div>
+            <div className="container mx-auto px-5">
             <Navbar></Navbar>
             <Outlet></Outlet>
-            <Footer></Footer>
+            
+        </div>
+        <div className="bg-[#151515]">
+        <Footer></Footer>
+        </div>
         </div>
     );
 };

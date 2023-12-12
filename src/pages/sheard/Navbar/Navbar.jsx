@@ -1,11 +1,18 @@
 import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 import logoImg from '../../../assets/icons/logo.svg'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { AuthContext } from '../../../Provider/AuthProvider'
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
 
+    const {user, logOut} = useContext(AuthContext)
+    console.log(user)
+
+  const handleLogOut = () =>{
+    logOut()
+  }
 
   const navLinks = (
     <>
@@ -44,6 +51,22 @@ const Navbar = () => {
           to={'/contact'}
         >
           Contact
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className='mx-2 text-[#444444] font-semibold text-lg'
+          to={'/login'}
+        >
+          Login
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className='mx-2 text-[#444444] font-semibold text-lg'
+          to={'/signup'}
+        >
+          Sign Up
         </NavLink>
       </li>
     </>
@@ -92,6 +115,8 @@ const Navbar = () => {
         <ul className='menu menu-horizontal px-1'>{navLinks}</ul>
       </div>
       <div className='navbar-end'>
+        <p>{user?.email}</p>
+        {user? <button className='btn mx-2' onClick={handleLogOut}>LogOut</button>: <Link to={'login'}>Login</Link>}
         <a className='btn text-[#FF3811] text-lg font-semibold'>Appointment</a>
       </div>
     </div>
