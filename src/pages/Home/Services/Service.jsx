@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 
 
@@ -7,7 +8,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 
 const Service = ({service}) => {
-  const {img, title , price  } =service
+  const {_id,img, title , price  } =service
 
 
 
@@ -25,7 +26,7 @@ const Service = ({service}) => {
         
         <div className='card-actions flex justify-between'>
         <p className="font-bold text-primary-color">Price: {price}</p>
-          <button className='text-primary-color'><FaArrowRightLong /></button>
+          <Link to={`/checkOut/${_id}`} className='text-primary-color'><FaArrowRightLong /></Link>
         </div>
       </div>
     </div>
@@ -34,10 +35,13 @@ const Service = ({service}) => {
 
 Service.propTypes = {
   service: PropTypes.shape({
+    _id: PropTypes.any,
     img: PropTypes.any,
     price: PropTypes.any,
     title: PropTypes.any
   })
 }
+
+
 
 export default Service
